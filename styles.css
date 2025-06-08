@@ -86,6 +86,22 @@ button:hover {
   color: #888;
 }
 
+/* Tambahan animasi untuk teks welcome */
+.fade-in {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInText 1s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+.slide-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 1s ease-out forwards;
+  animation-delay: 0.8s;
+}
+
+/* Keyframes */
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -103,5 +119,19 @@ button:hover {
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes fadeInText {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
