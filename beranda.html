@@ -2,6 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Beranda - Reva</title>
   <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
@@ -12,10 +13,11 @@
     <a href="login.html">Login</a>
     <a href="beranda.html" class="active">Beranda</a>
   </nav>
+
   <main class="beranda">
     <h2>Buat Postingan</h2>
     <form class="post-form">
-      <textarea placeholder="Tulis sesuatu..."></textarea>
+      <textarea placeholder="Tulis sesuatu..." rows="4"></textarea>
       <input type="file" accept="image/*" />
       <button type="submit">Posting</button>
     </form>
@@ -23,7 +25,8 @@
     <div class="post">
       <p><strong>NP</strong></p>
       <p class="time">2025-05-25 09:38:12</p>
-      <p class="konten">P<br>bali</p>
+      <p class="konten">Pemandangan Bali waktu sore, adem banget asli. 😍</p>
+      <img src="img/bali.jpg" alt="Foto Bali" class="uploaded-image" />
     </div>
   </main>
 </body>
