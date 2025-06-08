@@ -1,3 +1,4 @@
+/* Reset & Basic */
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -113,6 +114,7 @@ h2 {
   display: block;
 }
 
+/* Animations */
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -131,13 +133,4 @@ h2 {
   to {
     opacity: 1;
   }
-}
-
-.profile-pic {
-  width: 150px;
-  height: auto;
-  border-radius: 50%;
-  display: block;
-  margin: 0 auto;
-  max-width: 80%;
 }
