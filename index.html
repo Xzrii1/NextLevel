@@ -1,22 +1,221 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nazrii Project</title>
-  <link rel="stylesheet" href="styles.css">
-  <script defer src="script.js"></script>
-</head>
-<body>
-  <nav class="navbar">
-    <a href="register.html">Register</a>
-    <a href="login.html">Login</a>
-    <a href="beranda.html">Beranda</a>
-  </nav>
 
-  <main class="main-content">
-    <h1 class="fade-in">Welcome to Nazri Project</h1>
-    <p class="slide-up">Silakan navigasi menggunakan menu di atas.</p>
-  </main>
-</body>
-</html>
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>App with Login, Register &amp; Beranda</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    :root {
+      --gradient-start: #6b73ff;
+      --gradient-end: #000dff;
+      --background: #ffffff;
+      --text-primary: #374151;
+      --text-secondary: #6b7280;
+      --card-background: #ffffff;
+      --card-shadow: rgba(0,0,0,0.05);
+      --input-border: #e5e7eb;
+      --input-focus: #000dff;
+      --border-radius: 0.75rem;
+      --transition-speed: 0.4s;
+    }
+
+    [data-theme="dark"] {
+      --background: #121217;
+      --text-primary: #e0e0e0;
+      --text-secondary: #a1a1aa;
+      --card-background: #1e1e28;
+      --card-shadow: rgba(0,0,0,0.8);
+      --input-border: #3f3f46;
+      --input-focus: #6b73ff;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--background);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background var(--transition-speed) ease, color var(--transition-speed) ease;
+      scroll-behavior: smooth;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    button {
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--card-background);
+      box-shadow: 0 2px 8px var(--card-shadow);
+      transition: background var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+    .nav-logo {
+      font-weight: 800;
+      font-size: 1.8rem;
+      background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      cursor: default;
+      user-select: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-link {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text-secondary);
+      padding: 0.25rem 0;
+      position: relative;
+      transition: color var(--transition-speed) ease;
+      user-select: none;
+    }
+    .nav-link:hover,
+    .nav-link:focus {
+      color: var(--gradient-end);
+      outline: none;
+    }
+    .nav-link.active {
+      color: var(--gradient-end);
+      font-weight: 700;
+    }
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      border-radius: 3px;
+      background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+    }
+
+    .theme-toggle {
+      border: none;
+      background: transparent;
+      font-size: 1.35rem;
+      color: var(--text-secondary);
+      transition: color var(--transition-speed) ease;
+      margin-left: 1rem;
+      display: flex;
+      align-items: center;
+      user-select: none;
+    }
+    .theme-toggle:hover,
+    .theme-toggle:focus {
+      color: var(--gradient-end);
+      outline: none;
+    }
+
+    main {
+      flex-grow: 1;
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 1rem 4rem;
+      min-height: 70vh;
+      position: relative;
+    }
+
+    section {
+      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+      transition:
+        opacity var(--transition-speed) ease,
+        transform var(--transition-speed) ease;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+    section.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+      position: relative;
+    }
+
+    h1.section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--gradient-end);
+      user-select: none;
+    }
+    .section-subtitle {
+      font-weight: 400;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: var(--text-secondary);
+      user-select: none;
+    }
+  
+    form {
+      max-width: 380px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      background: var(--card-background);
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      box-shadow: 0 10px 30px var(--card-shadow);
+      transition: background var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+      user-select: none;
+    }
+    label {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      user-select: text;
+    }
+    input {
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      color: var(--text-primary);
+      border-radius: 0.5rem;
+      border: 1.5px solid var(--input-border);
+      background: var(--background);
+      transition:
+        border-color var(--transition-speed) ease,
+        box-shadow var(--transition-speed) ease,
+        background var(--transition-speed) ease;
+    }
+    input::placeholder {
+      color: var(--text-secondary);
+      user-select: none;
+    }
+    input:focus {
+      outline: none;
+      border-color: var(--input-focus);
+      box-shadow: 0 0 10px var(--input-focus);
+      background: var(--background);
+    }
+    button {
+      margin-top: 0.5rem;
+      padding: 0.
