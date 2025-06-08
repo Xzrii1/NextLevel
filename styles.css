@@ -132,3 +132,12 @@ h2 {
     opacity: 1;
   }
 }
+
+.profile-pic {
+  width: 150px;
+  height: auto;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+  max-width: 80%;
+}
