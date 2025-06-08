@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #f8f4f0;
   color: #333;
   animation: fadeIn 0.5s ease-in;
@@ -8,17 +8,18 @@ body {
 
 .navbar {
   background-color: #2d2d2d;
-  padding: 1rem;
+  padding: 1rem 0;
   display: flex;
-  gap: 1.5rem;
   justify-content: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  gap: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .navbar a {
   color: #eee;
   text-decoration: none;
   font-weight: 600;
+  font-size: 1.1rem;
   transition: color 0.3s ease;
 }
 
@@ -27,37 +28,44 @@ body {
   color: #ff6f00;
 }
 
-.main-content,
-.form-container,
 .beranda {
   max-width: 600px;
   margin: 2rem auto;
   padding: 2rem;
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
   animation: fadeUp 0.6s ease;
 }
 
-form input,
-form textarea {
+h2 {
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+.post-form textarea {
   width: 100%;
-  margin: 1rem 0;
-  padding: 0.8rem;
+  padding: 1rem;
   border-radius: 8px;
   border: 1px solid #ccc;
   font-size: 1rem;
-  transition: all 0.3s ease;
+  resize: vertical;
+  transition: border-color 0.3s ease;
 }
 
-form input:focus,
-form textarea:focus {
+.post-form textarea:focus {
   border-color: #ff6f00;
   outline: none;
-  box-shadow: 0 0 5px rgba(255, 111, 0, 0.4);
+  box-shadow: 0 0 8px rgba(255, 111, 0, 0.5);
 }
 
-button {
+.post-form input[type="file"] {
+  margin-top: 1rem;
+  display: block;
+}
+
+.post-form button {
+  margin-top: 1rem;
   background-color: #ff6f00;
   color: white;
   padding: 0.8rem 1.5rem;
@@ -65,20 +73,25 @@ button {
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
+  font-size: 1rem;
   transition: background 0.3s ease;
 }
 
-button:hover {
+.post-form button:hover {
   background-color: #e65c00;
 }
 
 .post {
   margin-top: 2rem;
-  padding: 1rem;
+  padding: 1.5rem 1rem 1rem 1rem;
   background: #fafafa;
   border-left: 5px solid #ff6f00;
   border-radius: 8px;
   animation: fadeUp 0.5s ease-in-out;
+}
+
+.post p {
+  margin: 0.3rem 0;
 }
 
 .time {
@@ -86,18 +99,18 @@ button:hover {
   color: #888;
 }
 
-.fade-in {
-  opacity: 0;
-  transform: translateY(-20px);
-  animation: fadeInText 1s ease-out forwards;
-  animation-delay: 0.3s;
+.konten {
+  margin-top: 0.8rem;
+  font-size: 1rem;
+  color: #444;
 }
 
-.slide-up {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: slideUp 1s ease-out forwards;
-  animation-delay: 0.8s;
+.uploaded-image {
+  max-width: 100%;
+  margin-top: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  display: block;
 }
 
 @keyframes fadeUp {
@@ -118,37 +131,4 @@ button:hover {
   to {
     opacity: 1;
   }
-}
-
-@keyframes fadeInText {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.profile-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-}
-
-.profile-pic {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.profile-pic:hover {
-  transform: scale(1.05);
 }
