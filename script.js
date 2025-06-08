@@ -1,10 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Efek transisi fade-in body
   document.body.style.opacity = 0;
   setTimeout(() => {
     document.body.style.transition = 'opacity 0.5s ease-in-out';
     document.body.style.opacity = 1;
   }, 10);
 
+  // Form handler untuk posting
   const form = document.querySelector('.post-form');
   const postList = document.querySelector('.beranda');
 
@@ -54,6 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       postList.appendChild(postDiv);
+
+      // Reset form
       textarea.value = '';
       fileInput.value = '';
     });
